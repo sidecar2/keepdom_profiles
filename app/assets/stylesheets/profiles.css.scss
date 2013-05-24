@@ -1,0 +1,232 @@
+// Place all the styles related to the Profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//.bg-img(@img) { background-image:url("@{img}"); }
+
+@mixin bgcover() {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+@mixin background($imgpath,$position:0 0, $repeat: no-repeat) {
+    background: {
+        image: image-url($imgpath);
+        position: $position;
+        repeat: $repeat;
+      
+    }
+}
+
+@mixin roundcorners($radius) {
+    -moz-border-radius: $radius;    // firefox
+    -webkit-border-radius: $radius; // safari/chrome
+    border-radius: $radius;         // CSS3, works in IE9
+}
+
+@mixin box-shadow($value) {
+  -webkit-box-shadow: #{$value};               // #{} removes the quotation marks that
+  -moz-box-shadow: #{$value};                  // cause the CSS to render incorrectly.
+  box-shadow: #{$value};
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+//Site Styles 
+$green: #77A78E;
+$orange: #EC6C5A;
+$blue: #2F3439;
+$opaque: rgba(255,255,255, 0.6);
+$copygrey: #58595B;
+$mediumgrey: #6F737A;
+
+//Dynamic Variables
+$color: #fff;
+$tag-size: 2.8em;
+$nova: "proxima-nova",sans-serif;
+
+
+//General Styles
+body, html {width: 100%; margin: 0; padding: 0; font-family: $nova; }
+ p { margin: 0; padding: 5px;}
+.wrap {width: 1060px; margin: 0 auto; padding: 0px;}
+.clear {clear: both;}
+.clear.pad {padding-bottom: 20px;}
+
+//Main Section
+section#about {
+	width: 100%; 
+	height: 600px;
+    @include background('cute-dog2.jpg');
+    @include bgcover;
+    position: relative;
+}
+
+section#about .wrap {position: relative; height: 600px;}
+
+h1#header {color: $blue; font-size: $tag-size; font-family: $nova; margin: 0 0 20px 0; padding-top: 20px;}
+h3#tagline {color: $blue; font-size: 1.6em;  font-family: $nova;}
+
+.column {float: left; }
+.column.left { width: 320px; }
+.column.left.top { position: absolute; bottom: 0; left: 0;}
+//About Left Column
+p.contact { text-align: center; margin: 0; padding: 0;
+a { color: #fff; letter-spacing: 1px; font-size: 1.4em; padding: 25px 0; font-family: $nova; background: $green; text-decoration: none; display: block; width: 100%; height: 100%;
+	&:hover { background: $orange; @include transition(background, .5s, linear);
+  }
+ }
+}
+.info {background: $opaque; color: #58595B; margin: 0; padding: 5px; border-top: 1px solid rgba(255,255,255,0.2); }
+.info h6 {font-size: 1.3em; margin: 0; font-weight: 600; color: $blue;}
+
+//About Right Column
+.column.right {width: 660px; float: right;}
+.column.right.top { position: absolute; bottom: 0; right: 0;}
+#about_head {background: $blue; width: 100%; height: 40px;
+h5 { margin: 0; padding: 10px; color: #fff; letter-spacing: 1px; font-weight: 400; font-size: 1.2em; text-indent: 20px;
+	span { background: image-url('location.png') no-repeat; height: 30px; width: 30px; position: absolute; left: 3px;
+	}
+   }
+  }
+#about_body {background: $opaque; min-height: 100px;
+		p { font-size: 0.95em; color: $copygrey; text-shadow: 1px 1px #ddd;
+
+	}
+}
+
+//Links Section
+section#links {background: image-url('bg_blue.png') repeat; height: 60px; color: #fff; @include box-shadow(0px 1px 2px rgba(0,0,0,.7)); position: relative; 
+ul { list-style: none; margin: 0;  padding: 10px 0 0 0;
+	li { display: inline-block; padding: 0; height: 41px; width: 41px;
+		a {width: 40px; height: 40px; display: block;}
+	}
+ }
+}
+
+section#links .column.right {
+	ul { width: 360px; float: right; padding: 5px 0 0 0;
+		li {width: 160px; height: 50px;}
+		a { width: 160px; height: 50px; line-height: 50px; color: #fff; text-indent: 50px; text-decoration: none; font-size: 0.87em; letter-spacing: 1px; text-shadow: 1px 1px #000; text-transform: uppercase;
+		}
+	}
+}
+//Individual Nav Links
+section#links ul li.fb a {background: image-url('fb.png') no-repeat 0 0;
+&:hover { background-position: 0 -40px;
+ }
+}
+section#links ul li.review { margin-right: 20px;
+ a {background: image-url('review.png') no-repeat 0 0;
+&:hover { background-position: 0 -49px;
+  }
+ }
+}
+section#links ul li.refer a {background: image-url('refer.png') no-repeat 0 0;
+&:hover { background-position: 0 -49px;
+ }
+}
+
+section#links ul li.twt a {background: image-url('twitter.png') no-repeat 0 0;
+&:hover { background-position: 0 -40px;
+ }
+}
+section#links ul li.linkd a {background: image-url('linkedin.png') no-repeat 0 0;
+&:hover { background-position: 0 -40px;
+ }
+}
+
+section#links ul li.instagram a {background: image-url('instagram.png') no-repeat 0 0;
+&:hover { background-position: 0 -40px;
+ }
+}
+
+
+section#availability {background: image-url('bg_yellow.png') repeat;
+	.column.right {padding-left: 29px; width: 600px; float: left; border-left: 1px solid #DDDDDD;
+ }
+}
+
+section#availability .column.left {margin-right: 80px;}
+h4.label {font-size: 1.3em; margin: 0; padding: 20px 0 20px 0; color: $blue; text-shadow: 1px 1px #fff;}
+p.user_entry {background: #fff; color: $copygrey; @include box-shadow(0 0 1px rgba(0,0,0,.3) inset); padding: 7px; font-size: .9em;}
+a.mail {display: block; margin-top: 25px; padding: 5px 12px; background: $green; color: #fff; text-decoration: none; text-align: center; width: 120px; position: relative; @include roundcorners(4px);
+&:hover { background: $orange; @include transition(background, .5s, linear); }
+}
+a.mail span {background: image-url('messageme.png') no-repeat; position: absolute; width: 24px; height: 20px; left: 4px; top: 7px;}
+//Schedule
+
+#schedule {width: 590px; height: 350px;}
+header#calendar {background: $blue; height: 40px; width: 566px;}
+div.days {float: left; text-align: center; color: #fff; width: 100px; margin: 10px 0 10px 0; border-right: 1px solid #6F737A; }
+div.days.last {border-right: none;}
+.cal_column {float: left; width: 100px; background: #fff; }
+
+.cal_column#left .cal_heading {background: $mediumgrey; height: 40px; border-right: none; }
+.cal_column#right {width: 505px; background: #F6F6F3; border-right: 1px solid #ddd;}
+.cal_table {height: 22px; font-size: 0.9em; line-height: 20px; max-height: 22px; min-height: 22px; overflow: hidden;}
+.cal_table span {font-size: 0.7em;}
+.cal_column#left {width: 60px; text-indent: 25px; color: $copygrey; }
+.cal_column#left .cal_table {border-right: 1px solid #ddd; }
+.cal_table.top {height: 20px; text-indent: 10px; border-bottom: 1px solid #ddd; background: #fff; line-height: 25px;}
+.cal_column#right .cal_table.top {position: relative; text-indent: 28px; line-height: 25px; color: $copygrey; }
+.cal_column#right .cal_table.top span {background: #EC6C5A; height: 14px; width: 14px; position: absolute; left: 5px; top: 5px; @include roundcorners(7px); }
+.days.main_column { background: #F6F6F3; margin: 0; border-right: 1px solid #E5E5E5; }
+.days.main_column.last {border-right: none;}
+.cal_dates {height: 21px; border-bottom: 1px solid #E5E5E5;}
+.cal_dates.booked {background: #EC6C5A;}
+
+p#evenings {color: $copygrey; font-size: .9em;}
+p#evenings span {background: image-url('moon.png') no-repeat;}
+p#petsit {color: $copygrey; font-size: .9em;}
+p#petsit span {background: image-url('petsit.png') no-repeat;}
+//Testimonials
+
+section#tesimonials {background: $blue; }
+section#tesimonials .wrap {position: relative;}
+p.testimonial {font-style: italic; font-size: 1em; font-family: "adelle",serif; color: #fff; text-align: center; width: 70%; margin: 0 auto; padding: 5px;}
+p.ref_name {text-align: center; margin-top: 10px; font-size: 1.2em; color: #fff; }
+p.more {position: absolute; color: #fff; background: #3F464B; color: #fff; bottom: 10px; right: 10px; font-size: .9em; padding: 4px 6px; width: 120px; text-align: center;}
+
+//Stats
+
+section#stats {background: #F6F6F3; border-bottom: solid 1px #ddd;}
+section#stats .column.left, section#rates .column.left {padding-right: 80px; border-right: 1px solid #DDDDDD;}
+section#stats .column.right, section#rates .column.right {padding-left: 29px; width: 600px; float: left; }
+section#stats h4, section#rates h4 {padding: 10px 0 5px 0; margin: 0; color: $blue; text-shadow: 1px 1px #fff;}
+section#stats p, section#rates p {padding: 2px 0; color: $copygrey; font-size: 0.9em; margin-bottom: 15px;}
+p#verified span { background: image-url('insurance.png') no-repeat;}
+p#insurance span { background: image-url('verified.png') no-repeat;}
+p#basic span  { background: image-url('education.png') no-repeat;}
+p#medicine span { background: image-url('medicine.png') no-repeat;}
+p.icon {position: relative; text-indent: 30px; margin-bottom: 15px;}
+p.icon span {position: absolute; display: inline-block; width: 30px; background: image-url('insurance.png') no-repeat; height: 30px; left: 0;}
+//Rates
+
+section#rates {background: #F1F2F2;}
+
+//Media 
+#media {background: image-url('dgreybg.png') repeat;}
+.media_wrap {background: image-url('lgreybg.png') repeat; padding: 12px; @include roundcorners(4px); }
+#media h4 {margin-top: 0; color: #D1D3D4; padding-top: 20px; font-size: 1.3em; position: relative; text-indent: 38px; font-weight: 400;}
+#media h4 span {background: image-url('camera.png') no-repeat; position: absolute; height: 25px; width: 30px; left: 2px;}
+#media ul { list-style: none; padding: 0; margin: 0; 
+  li { width: 253px; margin: 1px; background: #ddd; display: inline-block; float: left; height: 250px; border: 2px solid #ddd;
+      img { max-width: 100%; width: 100%; height: 100%;
+
+      }
+
+  }
+
+}
+
+footer.profiles  {width: 100%; height: 100px; background: #000;}

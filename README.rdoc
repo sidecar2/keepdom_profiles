@@ -1,0 +1,7 @@
+== To do: 
+A lot. 
+
+--Nav Bars
+--Footer
+--Convert to Slim
+--Add in dynamic slim content
